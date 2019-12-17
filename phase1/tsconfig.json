@@ -7,7 +7,7 @@
     "experimentalDecorators": true,
     "incremental": true,
     "jsx": "preserve",
-    "lib": ["ES2018", "ESNext.AsyncIterable"],
+    "lib": ["esnext"],
     "module": "CommonJS",
     "moduleResolution": "Node",
     "outDir": "lib",
@@ -15,8 +15,7 @@
     "sourceMap": true,
     "strict": true,
     "strictPropertyInitialization": false,
-    "target": "ESNext"
+    "target": "esnext"
   },
-  "include": ["src"],
-  "exclude": ["node_modules/**"]
+  "include": ["src"]
 }

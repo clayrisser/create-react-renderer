@@ -50,10 +50,6 @@
     "test": "npm run lint && jest --coverage"
   },
   "dependencies": {
-    "@babel/generator": "^7.7.4",
-    "@babel/parser": "^7.7.5",
-    "@babel/template": "^7.7.4",
-    "@babel/types": "^7.7.4",
     "core-js": "^3.5.0",
     "lodash": "^4.17.15",
     "npm-pkg-json": "^0.1.0",
