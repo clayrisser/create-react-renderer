@@ -3,7 +3,7 @@
 > setup the reconciler
 
 DISCLAIMER: These definitions are not official. They are based on my own understanding of react renderers.
-They are also not intended for understanding how to use react, but rather are for providing the context of
+They are not intended for understanding how to use react, but rather are for providing the context of
 understanding how a react renderer works.
 
 ## Definitions

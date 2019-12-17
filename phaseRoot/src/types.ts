@@ -1,9 +1,16 @@
-export interface BaseNode {
-  [key: string]: any;
-}
+import { GeneratorOptions } from '@babel/generator';
+import { Node as BabelNode, Comment, SourceLocation } from '@babel/types';
+import { Options as PrettierOptions } from 'prettier';
+import { TemplateBuilderOptions } from '@babel/template';
 
-export interface Options {
-  [key: string]: any;
+export interface BaseNode {
+  leadingComments: ReadonlyArray<Comment> | null;
+  innerComments: ReadonlyArray<Comment> | null;
+  trailingComments: ReadonlyArray<Comment> | null;
+  start: number | null;
+  end: number | null;
+  loc: SourceLocation | null;
+  type: BabelNode['type'];
 }
 
 export type BundleType = 0 | 1;
@@ -60,4 +67,10 @@ export interface Context {
 
 export interface Node extends BaseNode {
   body?: BaseNode[];
+}
+
+export interface Options {
+  generatorOptions?: GeneratorOptions;
+  parserOptions?: TemplateBuilderOptions;
+  prettier?: boolean | PrettierOptions;
 }

@@ -1,27 +1,16 @@
-declare namespace JSX {
-  // @ts-ignore
-  import { ReactNode, Ref } from 'react';
-  import template, {
-    TemplateBuilderOptions,
-    PublicReplacements
-    // @ts-ignore
-  } from '@babel/template';
-  // @ts-ignore
-  import { Path } from '..';
+import { ReactNode, Ref } from 'react';
 
+declare namespace JSX {
   interface IntrinsicElements {
-    Smart: {
-      bodyPath?: Path;
-      children?: ReactNode;
-      code: string;
-      options?: TemplateBuilderOptions;
-      parentBodyPath?: Path;
-      ref?: Ref;
-      replacements?: PublicReplacements;
-      scopePath?: Path;
+    Hello: {
+      ref?: Ref<any>;
     };
-    Expression: {};
-    File: {};
-    Program: {};
+    Howdy: {
+      ref?: Ref<any>;
+    };
+    Wrapper: {
+      ref?: Ref<any>;
+      children?: ReactNode;
+    };
   }
 }

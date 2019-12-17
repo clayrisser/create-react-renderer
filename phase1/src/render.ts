@@ -19,5 +19,6 @@ export function render(jsx: JSX.Element, _options: Options = {}) {
   Renderer.updateContainer(jsx, root, null, () => {});
 
   // return rendered result (not required for side effect renderers)
+  // in this case the rendered result is the node itself
   return rootElement.node;
 }

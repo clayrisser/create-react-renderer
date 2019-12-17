@@ -1,17 +1,15 @@
-import Expression from './Expression';
-import File from './File';
-import Program from './Program';
-import Smart from './Smart';
+import Hello from './Hello';
+import Howdy from './Howdy';
+import Wrapper from './Wrapper';
 import { ElementConstructor } from './Element';
 
 export interface Elements {
   [key: string]: ElementConstructor;
 }
 
-export { Expression, File, Program, Smart };
+export { Hello, Howdy, Wrapper };
 export default {
-  Expression,
-  File,
-  Program,
-  Smart
+  Hello,
+  Howdy,
+  Wrapper
 } as Elements;
