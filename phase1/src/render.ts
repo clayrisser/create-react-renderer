@@ -1,18 +1,20 @@
-import pkg from 'npm-pkg-json';
+import { Element } from './elements';
 import Renderer from './reconciler';
-import { Container, Options } from './types';
+import { BaseNode, Options } from './types';
 
-export function render(element: JSX.Element, _options: Options = {}) {
-  const root = Renderer.createContainer(
-    (null as unknown) as Container,
-    false,
-    false
-  );
-  Renderer.updateContainer(element, root, null, () => {});
-  Renderer.injectIntoDevTools({
-    bundleType: 1,
-    rendererPackageName: pkg.name,
-    version: pkg.version
-  });
-  return null;
+export function render(jsx: JSX.Element, _options: Options = {}) {
+  // create root node
+  const rootNode: BaseNode = { hello: 'world' };
+
+  // create root element
+  const rootElement = new Element(rootNode);
+
+  // create root
+  const root = Renderer.createContainer(rootElement, false, false);
+
+  // render
+  Renderer.updateContainer(jsx, root, null, () => {});
+
+  // return rendered result (not required for side effect renderers)
+  return rootElement.node;
 }
