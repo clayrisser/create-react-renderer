@@ -1,7 +1,7 @@
-import Element from './Element';
+import BaseElement from './BaseElement';
 import { Props } from '../types';
 
-export default class Wrapper extends Element {
+export default class Wrapper extends BaseElement {
   static propTypes: object;
 
   static defaultProps: Props;
@@ -10,7 +10,7 @@ export default class Wrapper extends Element {
     super({ greetings: [] }, props);
   }
 
-  appendChild(child: Element) {
+  appendChild(child: BaseElement) {
     this.node.greetings.push(child.node);
   }
 }

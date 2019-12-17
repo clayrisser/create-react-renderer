@@ -1,7 +1,7 @@
-import Element from './Element';
+import BaseElement from './BaseElement';
 import { Props } from '../types';
 
-export default class Hello extends Element {
+export default class Hello extends BaseElement {
   static propTypes: object;
 
   static defaultProps: Props;

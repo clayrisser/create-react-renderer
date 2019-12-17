@@ -1,8 +1,8 @@
 import elements from './elements';
-import { ElementConstructor } from './elements/Element';
+import { IElement } from './elements/BaseElement';
 
 export default function createElement(elementType: string, props: any) {
-  const Element: ElementConstructor = elements[elementType];
+  const Element: IElement = elements[elementType];
   if (!Element) throw new Error(`unknown element of type '${elementType}'`);
   return new Element(props);
 }

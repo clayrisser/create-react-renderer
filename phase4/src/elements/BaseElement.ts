@@ -2,13 +2,13 @@ import _ from 'lodash';
 import { ParserOptions } from '@babel/parser';
 import { BaseNode, Node, Instance, Props } from '../types';
 
-export interface ElementConstructor {
-  new (props?: Props, parserOptions?: ParserOptions): Element;
+export interface IElement {
+  new (props?: Props, parserOptions?: ParserOptions): BaseElement;
   propTypes: object;
   defaultProps: Props;
 }
 
-export default class Element implements Instance {
+export default class BaseElement implements Instance {
   static defaultProps: Props = {};
 
   static propTypes: object = {};
@@ -17,16 +17,16 @@ export default class Element implements Instance {
 
   props: Props;
 
-  children: Element[] = [];
+  children: BaseElement[] = [];
 
   constructor(baseNode: BaseNode | BaseNode[], _props: Props = {}) {
     if (Array.isArray(baseNode)) throw new Error('cannot be array');
     this.node = baseNode;
   }
 
-  appendChild(_child: Element) {}
+  appendChild(_child: BaseElement) {}
 
-  removeChild(_child: Element) {}
+  removeChild(_child: BaseElement) {}
 
   commitMount() {}
 

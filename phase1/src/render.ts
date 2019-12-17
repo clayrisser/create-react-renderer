@@ -1,4 +1,4 @@
-import { Element } from './elements';
+import { BaseElement } from './elements';
 import Renderer from './reconciler';
 import { BaseNode, Options } from './types';
 
@@ -10,7 +10,7 @@ export function render(jsx: JSX.Element, _options: Options = {}) {
   // create root element
   // think of an element as a react component that is directly bound to the reconciliation lifecycle methods
   // the root element is not created with JSX
-  const rootElement = new Element(rootNode);
+  const rootElement = new BaseElement(rootNode);
 
   // create root
   const root = Renderer.createContainer(rootElement, false, false);

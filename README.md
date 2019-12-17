@@ -31,6 +31,9 @@ Because it is directly bound to the react reconciliation lifecycle methods it is
 
 `<div>`, `<button>` and `<h1>` are all examples of elements in the react dom renderer.
 
+### Base Element
+The **base element** is the element all other elements inherit from.
+
 ### Component
 An encapsulation of components and/or elements.
 

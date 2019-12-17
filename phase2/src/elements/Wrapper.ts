@@ -1,7 +1,7 @@
-import Element from './Element';
+import BaseElement from './BaseElement';
 import { Props } from '../types';
 
-export default class Wrapper extends Element {
+export default class Wrapper extends BaseElement {
   static propTypes: object;
 
   static defaultProps: Props;

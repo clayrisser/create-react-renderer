@@ -1,12 +1,12 @@
 import { BaseNode, Node, Instance, Props } from '../types';
 
-export interface ElementConstructor {
-  new (props?: Props): Element;
+export interface IElement {
+  new (props?: Props): BaseElement;
   propTypes: object;
   defaultProps: Props;
 }
 
-export default class Element implements Instance {
+export default class BaseElement implements Instance {
   static defaultProps: Props = {};
 
   static propTypes: object = {};
@@ -15,16 +15,16 @@ export default class Element implements Instance {
 
   props: Props;
 
-  children: Element[] = [];
+  children: BaseElement[] = [];
 
   constructor(baseNode: BaseNode | BaseNode[], props: Props = {}) {
     this.node = baseNode;
     this.props = props;
   }
 
-  appendChild(_child: Element) {}
+  appendChild(_child: BaseElement) {}
 
-  removeChild(_child: Element) {}
+  removeChild(_child: BaseElement) {}
 
   commitMount() {}
 

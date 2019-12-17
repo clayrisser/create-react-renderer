@@ -1,10 +1,10 @@
 import Hello from './Hello';
 import Howdy from './Howdy';
 import Wrapper from './Wrapper';
-import { ElementConstructor } from './Element';
+import { IElement } from './BaseElement';
 
 export interface Elements {
-  [key: string]: ElementConstructor;
+  [key: string]: IElement;
 }
 
 export { Hello, Howdy, Wrapper };
