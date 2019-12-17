@@ -10,6 +10,8 @@
     }
   ],
   "rules": {
+    "@typescript-eslint/no-use-before-define": "warn",
+    "@typescript-eslint/quotes": "warn",
     "import/export": "off",
     "import/named": "off",
     "import/no-unresolved": "off",
@@ -17,6 +19,15 @@
     "react/forbid-foreign-prop-types": "off",
     "react/jsx-wrap-multilines": "off",
     "react/no-unescaped-entities": "off",
+    "react/static-property-placement": "warn",
+    "import/extensions": [
+      "error",
+      {
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
     "@typescript-eslint/no-unused-vars": [
       "error",
       { "argsIgnorePattern": "^_" }
