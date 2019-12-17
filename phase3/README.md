@@ -1,3 +1,3 @@
-# phase1
+# Phase 3
 
-> create some custom elements
+> bind some custom elements to reconciler
