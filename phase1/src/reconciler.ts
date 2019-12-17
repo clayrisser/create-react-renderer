@@ -17,6 +17,7 @@ import {
 // eslint-disable-next-line no-console
 const log = console;
 
+// bindings to the react reconciliation lifecycle methods
 export default ReactReconciler<
   Type,
   Props,
