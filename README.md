@@ -29,19 +29,28 @@ The diagram represents the following code
   <Button />
   <Input />
 </Form>
-```
+``**
 
-![React Renderer Bindings Diagram](slides/assets/react-renderer-binding-diagram.jpeg)
+![React Renderer Bindings Diagram](slides/assets/react-renderer-binding-diagram.jpeg**
 
 ## Definitions
+
+### Virtual DOM
+A tree structure that represents the current rendered state. Every branch and leaf on the tree is either a
+component or element.
+
+### Reconciliation
+
+**Reconciliation** is the process of determining which parts of the virtual dom need to be changed
+by diffing the current virtual dom tree with the new virtual dom tree.
 
 ### Reconciler
 The **reconciler** is the bindings to the react reconciliation lifecycle methods. This is NOT the react
 lifecycle hooks even though it is closley related to the react lifecycle hooks.
 
-### Virtual DOM
-A tree structure that represents the current rendered state. Every branch and leaf on the tree is either a
-component or element.
+### Fiber
+A **fiber** virtual stack frame of work for the react reconciler. You can think of it as the low level api the
+reconciler is built on top of.
 
 ### Node
 A **node** is the interface of the renderer that the react renderer is binding to. For example

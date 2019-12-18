@@ -69,7 +69,7 @@ export default ReactReconciler<
     _hostContext: HostContext
   ): TextInstance {
     log.debug('createTextInstance');
-    const label = new Smart({ code: text }, {});
+    const label = new Smart({ code: text }, {}); // explicitly specify element to use for text
     label.commitMount(); // prob should run at a later point
     return label;
   },
