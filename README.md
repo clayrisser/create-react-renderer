@@ -16,10 +16,12 @@ Silicon Hills offers premium Node and React develpoment and support services. Ge
 
 ## React Renderer Bindings Diagram
 
+The diagram represents the following code
+
 ```jsx
 <Form>
-  <Input />
   <Button />
+  <Input />
 </Form>
 ```
 
