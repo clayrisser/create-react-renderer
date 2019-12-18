@@ -31,7 +31,7 @@ The diagram represents the following code
 </Form>
 ```
 
-![React Renderer Bindings Diagram](slides/assets/react-renderer-binding-diagram.jpeg**
+![React Renderer Bindings Diagram](slides/assets/react-renderer-binding-diagram.jpeg
 
 ## Definitions
 
