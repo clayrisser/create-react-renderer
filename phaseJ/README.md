@@ -6,9 +6,9 @@
 
 ### Create function to calculate default props
 
-* The function should set props to default props when a prop is not passed in
-* The function should verify the prop types are correct
-* The logic should live in the `BaseElement`
+- The function should set props to default props when a prop is not passed in
+- The function should verify the prop types are correct
+- The logic should live in the `BaseElement`
 
 ```ts
 getProps(props: Props): Props {
