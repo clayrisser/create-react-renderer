@@ -21,10 +21,10 @@ export function renderAst(
   const rootElement = new File();
   rootElement.node = ast;
 
-  // create root
+  // create root fiber
   const root = reconciler.createContainer(rootElement, false, false);
 
-  // render
+  // reconcile virtual dom
   reconciler.updateContainer(jsx, root, null, () => {});
 
   // add dev tools support

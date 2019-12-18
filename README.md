@@ -14,6 +14,12 @@ understanding how a react renderer works.
 
 Silicon Hills offers premium Node and React develpoment and support services. Get in touch at [nuevesolutions.com](https://nuevesolutions.com).
 
+## Setup
+
+```sh
+npm install
+```
+
 ## React Renderer Bindings Diagram
 
 The diagram represents the following code
@@ -26,12 +32,6 @@ The diagram represents the following code
 ```
 
 ![React Renderer Bindings Diagram](slides/assets/react-renderer-binding-diagram.jpeg)
-
-## Setup
-
-```sh
-npm install
-```
 
 ## Definitions
 

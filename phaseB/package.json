@@ -48,7 +48,7 @@
     "lint:fix": "npm run format && tsc --noEmit && eslint --ext .ts,.tsx --fix ./",
     "prepublish": "npm run build",
     "start": "npm run babel example",
-    "test": "npm run lint && jest --coverage"
+    "test": "npm run lint && jest --coverage && npm run start"
   },
   "dependencies": {
     "core-js": "^3.5.0",

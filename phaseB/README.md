@@ -2,7 +2,9 @@
 
 > create some custom elements
 
-## Usage
+## Setup
+
+## Demo
 
 ```sh
 npm run start
