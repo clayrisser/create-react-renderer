@@ -8,6 +8,11 @@ DISCLAIMER: These definitions are not official. They are based on my own underst
 They are not intended for understanding how to use react, but rather are for providing the context of
 understanding how a react renderer works.
 
+## Sponsored by Silicon Hills LLC and Nueve Solutions LLC
+
+![nuevesolutions_logo1-300x140](https://user-images.githubusercontent.com/6234038/71054134-725e4800-2116-11ea-9c3a-ba9ce59b8d00.png)
+![index](https://user-images.githubusercontent.com/6234038/71054254-f284ad80-2116-11ea-9013-d68306726854.jpeg)
+
 ## Definitions
 
 ### Reconciler
