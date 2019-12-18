@@ -138,10 +138,30 @@ and then build lots of specific components on top of the broad elements.
 
 This can catch lots of unnecessary bugs.
 
-**TypeScript is head protection.**
-
-![](https://media.giphy.com/media/mBjulVQHWumozyk6O2/giphy.gif)
-
 ### Test test test (unit test)
 
 ### Build a solid foundation
+
+## Debugging
+
+Understanding the react lifecycle can really help with debugging.
+
+### Ref debugging
+
+You can get access to the node data from a ref. For example, the following will log the data
+from the node used in the `<Smart />` element. This is very helpful because the ref runs
+before the entire render cycle is finished. This is helpful for debugging bugs that are
+preventing rendering from finishing.
+
+```ts
+<Smart code="const hello = 'world'" ref={(ref: any) => console.log(ref.node)} />
+```
+
+This only works on element refs. Since elements are abstractions of your nodes, you can't see the
+value of nodes in component refs.
+
+For example, the following would log `undefined`
+
+```ts
+<FunctionDeclaration name="hello" ref={(ref: any) => console.log(ref.node)} />
+```
