@@ -90,7 +90,7 @@
     "lib"
   ],
   "jest": {
-    "testRegex": "((tests(/|/.*/)[^_/]*)|\\.spec)\\.[jt]sx?$",
+    "testRegex": "((tests(/|/.*/)[^_/]*)|(src(/|/.*/)[^_/]*\\.spec))\\.[jt]sx?$",
     "verbose": true,
     "setupFilesAfterEnv": [
       "./tests/_setup.ts"

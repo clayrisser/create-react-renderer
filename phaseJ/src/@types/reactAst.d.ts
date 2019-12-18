@@ -1,11 +1,14 @@
-import { ReactNode, Ref } from 'react';
-import template, {
-  TemplateBuilderOptions,
-  PublicReplacements
-} from '@babel/template';
-import { Path } from '..';
-
 declare namespace JSX {
+  // @ts-ignore
+  import { ReactNode, Ref } from 'react';
+  import template, {
+    TemplateBuilderOptions,
+    PublicReplacements
+    // @ts-ignore
+  } from '@babel/template';
+  // @ts-ignore
+  import { Path } from '..';
+
   interface IntrinsicElements {
     Ast: {
       ref?: Ref<any>;

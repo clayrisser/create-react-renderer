@@ -1,0 +1,69 @@
+import * as t from '@babel/types';
+import generate from '@babel/generator';
+import pkg from 'npm-pkg-json';
+import prettier from 'prettier';
+import Renderer from './reconciler';
+import dev from './dev';
+import { BundleType, Options } from './types';
+import { File } from './elements';
+import { updateContext } from './context';
+
+export function renderAst(
+  jsx: JSX.Element,
+  options: Options = {},
+
+  ast: t.File = t.file(t.program([]), [], [])
+): t.File {
+  updateContext({ parserOptions: options.parserOptions || {} });
+
+  // create root element
+  // a root node is already injected by this element constructor
+  const rootElement = new File();
+  rootElement.node = ast;
+
+  // create root
+  const root = Renderer.createContainer(rootElement, false, false);
+
+  // render
+  Renderer.updateContainer(jsx, root, null, () => {});
+
+  // add dev tools support
+  Renderer.injectIntoDevTools({
+    bundleType: Number(dev) as BundleType,
+    rendererPackageName: pkg.name,
+    version: pkg.version
+  });
+
+  // return rendered result (not required for side effect renderers)
+  // in this case the rendered result is the node itself
+  return rootElement.node as t.File;
+}
+
+export function render(
+  element: JSX.Element,
+  options: Options = {},
+  ast: t.File = t.file(t.program([]), [], [])
+): string {
+  options = {
+    prettier: true,
+    ...options
+  };
+  if (options.prettier === true) options.prettier = {};
+  if (options.prettier) {
+    options.prettier = {
+      parser: 'babel',
+      ...options.prettier
+    };
+  }
+  const { code } = generate(
+    renderAst(element, options, ast),
+    options.generatorOptions || {}
+  );
+  if (options.prettier) {
+    return prettier.format(
+      code,
+      typeof options.prettier === 'boolean' ? {} : options.prettier
+    );
+  }
+  return code;
+}
