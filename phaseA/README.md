@@ -2,7 +2,7 @@
 
 > setup the reconciler
 
-## Setup
+## Steps
 
 ### Create reconciler
 

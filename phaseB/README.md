@@ -2,7 +2,7 @@
 
 > create some custom elements
 
-## Setup
+## Steps
 
 ### Create element constants
 
@@ -16,6 +16,8 @@ The root element should be created from a custom element that logically
 sits at the top of the tree
 
 For example, the react dom renderer root element might use the `div` element
+
+### Create element generator
 
 ## Interesting Files
 
@@ -32,6 +34,8 @@ For example, the react dom renderer root element might use the `div` element
 [src/elements/Wrapper.ts](src/elements/Wrapper.ts)
 
 [src/elements/index.ts](src/elements/index.ts)
+
+[src/createElement.ts](src/createElement.ts)
 
 ## Demo
 
