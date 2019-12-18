@@ -34,8 +34,6 @@ export interface TextInstance extends Instance {}
 
 export interface DeepArray<T> extends Array<T | DeepArray<T>> {}
 
-export type Path = string | number | DeepArray<string | number>;
-
 export interface Props {
   [key: string]: Prop;
 }
