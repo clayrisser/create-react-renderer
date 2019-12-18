@@ -125,7 +125,7 @@ create components
 Try to start small. Build your renderer in many layers of abstraction.
 This renderer uses the following layers of abstraction.
 
-`reconciler` <- `BaseElement` <- `elements` <- `components` <- `more components**
+`reconciler` <- `BaseElement` <- `elements` <- `components` <- `more components`
 
 ### Few elements, lots of components
 
