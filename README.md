@@ -1,4 +1,4 @@
-# build-react-renderer
+# create-react-renderer
 
 > learn to build a custom react renderer
 
@@ -43,3 +43,41 @@ not created with JSX but is initialized during the initial render.
 
 ### Root
 This represents the root of the react virutal dom tree.
+
+## Phases
+
+### [Phase A](/phaseA)
+setup the reconciler
+
+### [Phase B](/phaseB)
+create some custom elements
+
+### [Phase C](/phaseC)
+bind some custom elements to reconciler
+
+### [Phase D](/phaseD)
+setup node
+
+### [Phase E](/phaseE)
+bind base element lifecycle methods
+
+### [Phase F](/phaseF)
+bind critical element lifecycle methods to reconciler lifecycle methods
+
+### [Phase G](/phaseG)
+create base elements
+
+### [Phase H](/phaseH)
+create text bindings
+
+### [Phase I](/phaseI)
+finish reconciler bindings
+
+### [Phase J](/phaseJ)
+add default props
+
+### [Phase K](/phaseK)
+add options
+
+### [Phase L](/phaseL)
+create components
