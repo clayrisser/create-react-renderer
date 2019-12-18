@@ -19,7 +19,7 @@ sits at the top of the tree
 
 For example, the react dom renderer root element might use the `div` element
 
-### Create element generator
+### Create element factory
 
 ## Interesting Files
 
