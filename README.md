@@ -14,6 +14,10 @@ understanding how a react renderer works.
 
 Silicon Hills offers premium Node and React develpoment and support services. Get in touch at [nuevesolutions.com](https://nuevesolutions.com).
 
+## React Renderer Bindings Diagram
+
+![React Renderer Bindings Diagram](slides/assets/react-renderer-binding-diagram.jpeg)
+
 ## Definitions
 
 ### Reconciler
