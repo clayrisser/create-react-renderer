@@ -1,5 +1,5 @@
 import { BaseElement } from './elements';
-import Renderer from './reconciler';
+import reconciler from './reconciler';
 import { BaseNode, Options } from './types';
 
 export function render(jsx: JSX.Element, _options: Options = {}) {
@@ -12,11 +12,11 @@ export function render(jsx: JSX.Element, _options: Options = {}) {
   // the root element is not created with JSX
   const rootElement = new BaseElement(rootNode);
 
-  // create root
-  const root = Renderer.createContainer(rootElement, false, false);
+  // create root fiber
+  const root = reconciler.createContainer(rootElement, false, false);
 
-  // render
-  Renderer.updateContainer(jsx, root, null, () => {});
+  // reconcile virtual dom
+  reconciler.updateContainer(jsx, root, null, () => {});
 
   // return rendered result (not required for side effect renderers)
   // in this case the rendered result is the node itself

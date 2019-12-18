@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import { BaseNode, Node, Instance, Props } from '../types';
 
 export default class BaseElement implements Instance {

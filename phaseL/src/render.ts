@@ -2,7 +2,7 @@ import * as t from '@babel/types';
 import generate from '@babel/generator';
 import pkg from 'npm-pkg-json';
 import prettier from 'prettier';
-import Renderer from './reconciler';
+import reconciler from './reconciler';
 import dev from './dev';
 import { BundleType, Options } from './types';
 import { File } from './elements';
@@ -22,13 +22,13 @@ export function renderAst(
   rootElement.node = ast;
 
   // create root
-  const root = Renderer.createContainer(rootElement, false, false);
+  const root = reconciler.createContainer(rootElement, false, false);
 
   // render
-  Renderer.updateContainer(jsx, root, null, () => {});
+  reconciler.updateContainer(jsx, root, null, () => {});
 
   // add dev tools support
-  Renderer.injectIntoDevTools({
+  reconciler.injectIntoDevTools({
     bundleType: Number(dev) as BundleType,
     rendererPackageName: pkg.name,
     version: pkg.version

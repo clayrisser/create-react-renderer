@@ -1,4 +1,4 @@
-import Renderer from './reconciler';
+import reconciler from './reconciler';
 import { Wrapper } from './elements';
 import { Options } from './types';
 
@@ -8,10 +8,10 @@ export function render(jsx: JSX.Element, _options: Options = {}) {
   const rootElement = new Wrapper();
 
   // create root
-  const root = Renderer.createContainer(rootElement, false, false);
+  const root = reconciler.createContainer(rootElement, false, false);
 
   // render
-  Renderer.updateContainer(jsx, root, null, () => {});
+  reconciler.updateContainer(jsx, root, null, () => {});
 
   // return rendered result (not required for side effect renderers)
   // in this case the rendered result is the node itself

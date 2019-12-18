@@ -1,6 +1,7 @@
 {
-  "name": "build-react-renderer",
-  "version": "1.0.1",
+  "name": "slides",
+  "private": true,
+  "version": "0.0.1",
   "description": "ReactJS Powered Presentation Framework",
   "main": "lib/index.js",
   "scripts": {

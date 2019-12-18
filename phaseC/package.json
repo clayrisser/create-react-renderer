@@ -1,6 +1,7 @@
 {
-  "name": "react-ast",
-  "version": "0.1.26",
+  "name": "phaseC",
+  "private": true,
+  "version": "0.0.1",
   "description": "render abstract syntax trees with react",
   "keywords": [
     "abstract",

@@ -13,6 +13,12 @@ understanding how a react renderer works.
 [![index](https://user-images.githubusercontent.com/6234038/71054254-f284ad80-2116-11ea-9013-d68306726854.jpeg)](https://nuevesolutions.com)
 [![nuevesolutions_logo1-300x140](https://user-images.githubusercontent.com/6234038/71054134-725e4800-2116-11ea-9c3a-ba9ce59b8d00.png)](https://nuevesolutions.com)
 
+## Setup
+
+```sh
+npm install
+```
+
 ## Definitions
 
 ### Reconciler

@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import { ParserOptions } from '@babel/parser';
 import { BaseNode, Node, Instance, Props } from '../types';
 
