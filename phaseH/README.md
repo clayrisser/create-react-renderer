@@ -13,14 +13,14 @@ child
 
 ```tsx
 <Hello>
-  <World />
-  i will trigger a text lifecycle method
+  <World />i will trigger a text lifecycle method
 </Hello>
 ```
 
 The reconciler text lifecycle methods explicitly specifies the element to use for text
 
 #### createTextInstance
+
 ```ts
 createTextInstance(
   text: string,
@@ -34,6 +34,7 @@ createTextInstance(
 ```
 
 #### resetTextContent
+
 Because my renderer does not rerender I don't need this.
 
 This probably should be implemented in a sideeffect renderer.
@@ -45,6 +46,7 @@ resetTextContent(_instance: Instance): void {
 ```
 
 #### commitTextUpdate
+
 Because my renderer does not rerender I don't need this.
 
 This probably should be implemented in a sideeffect renderer.
@@ -60,6 +62,7 @@ commitTextUpdate(
 ```
 
 #### shouldSetTextContent
+
 This is used to determine if the fiber is a text fiber
 
 ```ts
@@ -68,6 +71,10 @@ shouldSetTextContent(_type: Type, props: Props): boolean {
   return false;
 }
 ```
+
+## Interesting Files
+
+[src/reconciler.ts](src/reconciler.ts)
 
 ## Demo
 

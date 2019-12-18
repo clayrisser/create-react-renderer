@@ -9,9 +9,11 @@
 ### Create intrinsic element types
 
 ### Create elements
+
 Elements should extend the BaseElement
 
 ### Create root element from custom element
+
 The root element should be created from a custom element that logically
 sits at the top of the tree
 

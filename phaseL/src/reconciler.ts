@@ -53,7 +53,6 @@ export default ReactReconciler<
     parentInstance.appendChild(child);
   },
 
-  //
   finalizeInitialChildren(
     _parentInstance: Instance,
     _type: Type,
@@ -76,18 +75,15 @@ export default ReactReconciler<
     return label;
   },
 
-  //
   getPublicInstance(instance: Instance | TextInstance): PublicInstance {
     log.debug('getPublicInstance');
     return instance;
   },
 
-  //
   prepareForCommit(_containerInfo: Container): void {
     log.debug('prepareForCommit');
   },
 
-  //
   prepareUpdate(
     _instance: Instance,
     _type: Type,
@@ -100,7 +96,6 @@ export default ReactReconciler<
     return true;
   },
 
-  //
   resetAfterCommit(_containerInfo: Container): void {
     log.debug('resetAfterCommit');
   },
@@ -160,7 +155,6 @@ export default ReactReconciler<
     return false;
   },
 
-  // @ts-ignore
   getRootHostContext(_rootContainerInstance: Container): HostContext {
     log.debug('getRootHostContext');
     if (dev) log.warn("'getRootHostContext' not supported");
@@ -171,7 +165,6 @@ export default ReactReconciler<
     _parentHostContext: HostContext,
     _type: Type,
     _rootContainerInstance: Container
-    // @ts-ignore
   ): HostContext {
     log.debug('getChildHostContext');
     if (dev) log.warn("'getChildHostContext' not supported");
@@ -180,7 +173,6 @@ export default ReactReconciler<
 
   now: Date.now,
 
-  //
   commitUpdate(
     instance: Instance,
     _updatePayload: any,
@@ -192,19 +184,16 @@ export default ReactReconciler<
     return instance.commitUpdate(newProps);
   },
 
-  //
   commitMount(instance: Instance, _type: Type, _newProps: Props): void {
     log.debug('commitMount');
     instance.commitMount();
   },
 
-  //
   shouldDeprioritizeSubtree(): boolean {
     log.debug('shouldDeprioritizeSubtree');
     return true;
   },
 
-  //
   scheduleDeferredCallback(
     callback?: () => any,
     _options?: { timeout: number }
@@ -218,13 +207,11 @@ export default ReactReconciler<
     }
   },
 
-  //
   cancelDeferredCallback(_callbackID: any): void {
     log.debug('cancelDeferredCallback');
     // noop
   },
 
-  //
   setTimeout(
     handler: (...args: any[]) => void,
     timeout: number
@@ -233,7 +220,6 @@ export default ReactReconciler<
     return setTimeout(handler, timeout);
   },
 
-  //
   clearTimeout(handle: TimeoutHandle | NoTimeout): void {
     log.debug('clearTimeout');
     return clearTimeout(handle);
