@@ -117,3 +117,31 @@ add options
 
 ### [Phase L](/phaseL)
 create components
+
+## Tips
+
+### Abstraction is your friend
+
+Try to start small. Build your renderer in many layers of abstraction.
+This renderer uses the following layers of abstraction.
+
+`reconciler` <- `BaseElement` <- `elements` <- `components` <- `more components**
+
+### Few elements, lots of components
+
+Elements are hard to build and hard to debug. It's best to have a few broad and general elements
+and then build lots of specific components on top of the broad elements.
+
+### Start small, increment in small steps
+
+### Use typescript
+
+This can catch lots of unnecessary bugs.
+
+**TypeScript is head protection.**
+
+![](https://media.giphy.com/media/mBjulVQHWumozyk6O2/giphy.gif)
+
+### Test test test (unit test)
+
+### Build a solid foundation
