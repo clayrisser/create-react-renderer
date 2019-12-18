@@ -19,6 +19,7 @@ const Home = () => (
       Building a Custom
       <br /> React Renderer
     </Heading>
+    <br />
     <Text margin="10px 0 0" textColor="tertiary" fit bold>
       github.com/codejamninja/create-react-renderer
     </Text>
