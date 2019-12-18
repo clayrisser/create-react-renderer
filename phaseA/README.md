@@ -19,7 +19,9 @@ For now we will just log each of the lifecycle methods
 ## Interesting Files
 
 [src/reconciler.ts](src/reconciler.ts)
+
 [src/render.ts](src/render.ts)
+
 [src/elements/BaseElement.ts](src/elements/BaseElement.ts)
 
 ## Demo
