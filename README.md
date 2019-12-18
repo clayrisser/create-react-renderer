@@ -29,7 +29,7 @@ The diagram represents the following code
   <Button />
   <Input />
 </Form>
-``**
+```
 
 ![React Renderer Bindings Diagram](slides/assets/react-renderer-binding-diagram.jpeg**
 
