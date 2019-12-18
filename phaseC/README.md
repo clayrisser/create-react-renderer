@@ -15,7 +15,6 @@ createInstance(
   _rootContainerInstance: Container,
   _hostContext: HostContext
 ): Instance {
-  log.debug('createInstance');
   return createElement(type, props);
 }
 ```
@@ -27,8 +26,7 @@ appendChildToContainer(
   container: Container,
   child: Instance | TextInstance
 ): void {
-  log.debug('appendChildToContainer');
-    container.appendChild(child);
+  container.appendChild(child);
 }
 ```
 

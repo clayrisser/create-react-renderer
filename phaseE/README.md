@@ -2,12 +2,6 @@
 
 > bind base element lifecycle methods
 
-## Usage
-
-```sh
-npm run start
-```
-
 ## Steps
 
 ### Create meta data
