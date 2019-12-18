@@ -8,7 +8,7 @@ DISCLAIMER: These definitions are not official. They are based on my own underst
 They are not intended for understanding how to use react, but rather are for providing the context of
 understanding how a react renderer works.
 
-## Built by Silicon Hills LLC and Nueve Solutions LLC
+## Built by Silicon Hills LLC
 
 [![index](https://user-images.githubusercontent.com/6234038/71054254-f284ad80-2116-11ea-9013-d68306726854.jpeg)](https://nuevesolutions.com)
 
