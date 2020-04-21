@@ -8,7 +8,7 @@ DISCLAIMER: These definitions are not official. They are based on my own underst
 They are not intended for understanding how to use react, but rather are for providing the context of
 understanding how a react renderer works.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/SXx-CymMjDM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Alt text](https://img.youtube.com/vi/SXx-CymMjDM/0.jpg)](https://www.youtube.com/embed/SXx-CymMjDM)
 
 ## Built by Silicon Hills LLC
 
