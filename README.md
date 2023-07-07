@@ -2,6 +2,8 @@
 
 > learn to build a custom react renderer
 
+![](assets/create-react-renderer.png)
+
 Please ★ this repo if you found it useful ★ ★ ★
 
 ### Watch the Video Below
