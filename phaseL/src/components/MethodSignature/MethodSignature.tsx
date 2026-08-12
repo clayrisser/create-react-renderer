@@ -1,7 +1,6 @@
-import React, { Component, ReactNode } from 'react';
-import _ from 'lodash';
-import { oc } from 'ts-optchain.macro';
-import { Smart, Param, ReturnStatement, TypeAnnotation } from '../..';
+import { Component, ReactNode } from "react";
+import _ from "lodash";
+import { Smart, Param, ReturnStatement, TypeAnnotation } from "../..";
 
 export interface MethodSignatureProps {
   name: string;
@@ -12,18 +11,16 @@ export interface MethodSignatureProps {
 
 export class MethodSignature extends Component<MethodSignatureProps> {
   renderParams() {
-    return oc(this.props)
-      .params([])
-      .map((param: ReactNode) => {
-        if (typeof param === 'string') {
-          return (
-            <Param signature key={param}>
-              {param}
-            </Param>
-          );
-        }
-        return param;
-      });
+    return (this.props.params ?? []).map((param: ReactNode) => {
+      if (typeof param === "string") {
+        return (
+          <Param signature key={param}>
+            {param}
+          </Param>
+        );
+      }
+      return param;
+    });
   }
 
   renderReturnStatement() {
@@ -33,7 +30,7 @@ export class MethodSignature extends Component<MethodSignatureProps> {
   }
 
   renderReturnType() {
-    if (typeof this.props.returnType === 'string') {
+    if (typeof this.props.returnType === "string") {
       return <TypeAnnotation>{this.props.returnType}</TypeAnnotation>;
     }
     return this.props.returnType;

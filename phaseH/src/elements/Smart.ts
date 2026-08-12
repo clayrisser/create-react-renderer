@@ -1,51 +1,43 @@
-import PropTypes from 'prop-types';
-import _ from 'lodash';
-import { ParserOptions } from '@babel/parser';
-import template, {
-  TemplateBuilderOptions,
-  PublicReplacements
-} from '@babel/template';
-import BaseElement from './BaseElement';
-import { Props } from '../types';
-import { flattenPath } from '../util';
+import PropTypes from "prop-types";
+import _ from "lodash";
+import { ParserOptions } from "@babel/parser";
+import template, { TemplateBuilderOptions, PublicReplacements } from "@babel/template";
+import BaseElement from "./BaseElement";
+import { Props } from "../types";
+import { flattenPath } from "../util";
 
 export default class Smart extends BaseElement {
   static propTypes = {
     bodyPath: PropTypes.any,
-    children: PropTypes.node,
+    // PropTypes.node does not recognize react 19 elements, so use any
+    children: PropTypes.any,
     code: PropTypes.string.isRequired,
     options: PropTypes.object,
     ref: PropTypes.func,
     parantBodyPath: PropTypes.string,
     replacements: PropTypes.object,
-    scopePath: PropTypes.any
+    scopePath: PropTypes.any,
   };
 
   static defaultProps = {
-    bodyPath: 'body.body',
+    bodyPath: "body.body",
     children: null,
     options: {},
     parentBodyPath: null,
     ref: (f: any) => f,
     replacements: {},
-    scopePath: ''
+    scopePath: "",
   };
 
   constructor(props: Props, parserOptions: ParserOptions = {}) {
     const baseNode = template.smart(
       props.code,
-      _.merge(parserOptions, props.options) as TemplateBuilderOptions
+      _.merge(parserOptions, props.options) as TemplateBuilderOptions,
     )(props.replacements as PublicReplacements);
     const scopePath = flattenPath(props.scopePath);
-    super(
-      props.scopePath && scopePath.length
-        ? _.get(baseNode, scopePath)
-        : baseNode,
-      props,
-      {
-        bodyPath: props.bodyPath || 'body.body',
-        parentBodyPath: props.parentBodyPath
-      }
-    );
+    super(props.scopePath && scopePath.length ? _.get(baseNode, scopePath) : baseNode, props, {
+      bodyPath: props.bodyPath || "body.body",
+      parentBodyPath: props.parentBodyPath,
+    });
   }
 }

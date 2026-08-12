@@ -1,5 +1,5 @@
-import File from './File';
-import { IElement } from './BaseElement';
+import File from "./File";
+import { IElement } from "./BaseElement";
 
 export interface Elements {
   [key: string]: IElement;

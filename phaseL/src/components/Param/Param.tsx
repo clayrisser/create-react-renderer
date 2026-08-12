@@ -1,5 +1,5 @@
-import React, { Component, ReactNode } from 'react';
-import { Smart, TypeAnnotation } from '../..';
+import { Component, ReactNode } from "react";
+import { Smart, TypeAnnotation } from "../..";
 
 export interface ParamProps {
   children: string;
@@ -9,7 +9,7 @@ export interface ParamProps {
 
 export class Param extends Component<ParamProps> {
   renderTypeAnnotations() {
-    return typeof this.props.type === 'string' ? (
+    return typeof this.props.type === "string" ? (
       <TypeAnnotation>{this.props.type}</TypeAnnotation>
     ) : (
       this.props.type
@@ -22,7 +22,7 @@ export class Param extends Component<ParamProps> {
       <Smart
         code={code}
         scopePath="params.0"
-        parentBodyPath={this.props.signature ? 'parameters' : 'params'}
+        parentBodyPath={this.props.signature ? "parameters" : "params"}
       >
         {this.renderTypeAnnotations()}
       </Smart>

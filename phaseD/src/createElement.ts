@@ -1,5 +1,5 @@
-import elements from './elements';
-import { IElement } from './elements/BaseElement';
+import elements from "./elements";
+import { IElement } from "./elements/BaseElement";
 
 export default function createElement(elementType: string, props: any) {
   const Element: IElement = elements[elementType];

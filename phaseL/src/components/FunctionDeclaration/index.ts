@@ -1,1 +1,1 @@
-export * from './FunctionDeclaration';
+export * from "./FunctionDeclaration";

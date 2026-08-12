@@ -1,13 +1,11 @@
-import React, { Component, ReactNode } from 'react';
-import { Smart } from '../..';
+import { Component, ReactNode } from "react";
+import { Smart } from "../..";
 
 export interface ExportNamedDeclarationProps {
   children: ReactNode;
 }
 
-export class ExportNamedDeclaration extends Component<
-  ExportNamedDeclarationProps
-> {
+export class ExportNamedDeclaration extends Component<ExportNamedDeclarationProps> {
   render() {
     const code = `export class C{}`;
     return (

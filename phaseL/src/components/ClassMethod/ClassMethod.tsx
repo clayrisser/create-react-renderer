@@ -1,7 +1,6 @@
-import React, { Component, ReactNode } from 'react';
-import _ from 'lodash';
-import { oc } from 'ts-optchain.macro';
-import { Smart, Param, ReturnStatement, TypeAnnotation } from '../..';
+import { Component, ReactNode } from "react";
+import _ from "lodash";
+import { Smart, Param, ReturnStatement, TypeAnnotation } from "../..";
 
 export interface ClassMethodProps {
   children?: ReactNode;
@@ -14,18 +13,16 @@ export interface ClassMethodProps {
 
 export class ClassMethod extends Component<ClassMethodProps> {
   static defaultProps = {
-    static: false
+    static: false,
   };
 
   renderParams() {
-    return oc(this.props)
-      .params([])
-      .map((param: ReactNode) => {
-        if (typeof param === 'string') {
-          return <Param key={param}>{param}</Param>;
-        }
-        return param;
-      });
+    return (this.props.params ?? []).map((param: ReactNode) => {
+      if (typeof param === "string") {
+        return <Param key={param}>{param}</Param>;
+      }
+      return param;
+    });
   }
 
   renderReturnStatement() {
@@ -35,18 +32,14 @@ export class ClassMethod extends Component<ClassMethodProps> {
   }
 
   renderReturnType() {
-    if (typeof this.props.returnType === 'string') {
-      return (
-        <TypeAnnotation returnType>{this.props.returnType}</TypeAnnotation>
-      );
+    if (typeof this.props.returnType === "string") {
+      return <TypeAnnotation returnType>{this.props.returnType}</TypeAnnotation>;
     }
     return this.props.returnType;
   }
 
   render() {
-    const code = `class C {${this.props.static ? 'static ' : ''}${
-      this.props.name
-    }() {}}`;
+    const code = `class C {${this.props.static ? "static " : ""}${this.props.name}() {}}`;
     return (
       <Smart code={code} scopePath="body.body.0">
         {this.renderParams()}

@@ -1,1 +1,1 @@
-export * from './TypeAnnotation';
+export * from "./TypeAnnotation";

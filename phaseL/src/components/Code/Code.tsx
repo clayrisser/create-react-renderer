@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Smart } from '../..';
+import { Component } from "react";
+import { Smart } from "../..";
 
 export interface CodeProps {
   children: string;

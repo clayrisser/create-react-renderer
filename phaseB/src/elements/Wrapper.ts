@@ -1,12 +1,12 @@
-import BaseElement from './BaseElement';
-import { Props } from '../types';
+import BaseElement from "./BaseElement";
+import { Props } from "../types";
 
 export default class Wrapper extends BaseElement {
-  static propTypes: object;
+  static propTypes: object = {};
 
-  static defaultProps: Props;
+  static defaultProps: Props = {};
 
   constructor(props: Props = {}) {
-    super({ cool: 'beans' }, props);
+    super({ cool: "beans" }, props);
   }
 }

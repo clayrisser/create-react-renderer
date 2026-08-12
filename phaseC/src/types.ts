@@ -20,7 +20,11 @@ export type PublicInstance = Instance | TextInstance;
 
 export type HostContext = Context;
 
-export type UpdatePayload = any;
+export type SuspenseInstance = any;
+
+export type FormInstance = any;
+
+export type TransitionStatus = any;
 
 export type ChildSet = any;
 
@@ -46,10 +50,6 @@ export interface Instance {
   node: Node;
   props: Props;
   removeChild(child: Instance | TextInstance): void;
-}
-
-export interface Pkg {
-  [key: string]: any;
 }
 
 export interface Context {

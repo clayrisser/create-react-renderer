@@ -1,1 +1,1 @@
-export * from './MethodSignature';
+export * from "./MethodSignature";

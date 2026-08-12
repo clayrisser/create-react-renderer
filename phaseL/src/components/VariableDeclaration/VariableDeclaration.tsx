@@ -1,5 +1,5 @@
-import React, { Component, ReactNode } from 'react';
-import { Smart, TypeAnnotation } from '../..';
+import { Component, ReactNode } from "react";
+import { Smart, TypeAnnotation } from "../..";
 
 export interface VariableDeclarationProps {
   children?: ReactNode;
@@ -10,27 +10,22 @@ export interface VariableDeclarationProps {
 
 export class VariableDeclaration extends Component<VariableDeclarationProps> {
   static defaultProps = {
-    kind: 'var'
+    kind: "var",
   };
 
   renderChildren() {
-    if (typeof this.props.children === 'string') {
+    if (typeof this.props.children === "string") {
       const code = `'${this.props.children}'`;
       return <Smart code={code} scopePath="expression" />;
     }
-    if (
-      typeof this.props.children === 'number' ||
-      typeof this.props.children === 'boolean'
-    ) {
-      return (
-        <Smart code={this.props.children.toString()} scopePath="expression" />
-      );
+    if (typeof this.props.children === "number" || typeof this.props.children === "boolean") {
+      return <Smart code={this.props.children.toString()} scopePath="expression" />;
     }
     return this.props.children;
   }
 
   renderTypeAnnotation() {
-    return typeof this.props.type === 'string' ? (
+    return typeof this.props.type === "string" ? (
       <TypeAnnotation>{this.props.type}</TypeAnnotation>
     ) : (
       this.props.type
@@ -41,11 +36,7 @@ export class VariableDeclaration extends Component<VariableDeclarationProps> {
     const code = `${this.props.kind} ${this.props.name} = null`;
     return (
       <Smart code={code} bodyPath="declarations.0.init">
-        <Smart
-          code={code}
-          scopePath="declarations.0.id"
-          parentBodyPath="declarations.0.id"
-        >
+        <Smart code={code} scopePath="declarations.0.id" parentBodyPath="declarations.0.id">
           {this.renderTypeAnnotation()}
         </Smart>
         {this.renderChildren()}
