@@ -1,29 +1,22 @@
 {
   "name": "create-react-renderer",
+  "version": "0.1.0",
+  "private": true,
   "description": "learn to build a custom react renderer",
-  "version": "0.0.1",
-  "files": [
-    "packages"
-  ],
+  "license": "MIT",
   "scripts": {
-    "bootstrap": "lerna bootstrap --ignore-prepublish && npm run link && npm run build",
-    "bootstrap:hoist": "lerna bootstrap --hoist && npm run link",
-    "build": "lerna run --parallel build",
-    "clean": "lerna clean -y && git clean -fXd -e \\!node_modules -e \\!node_modules/**/*",
-    "clean:purge": "git clean -fXd",
-    "format": "lerna run --parallel format",
-    "keycloak": "cd example/keycloak && docker-compose up",
-    "lerna": "lerna",
-    "link": "lerna link",
-    "lint": "lerna run --parallel lint",
-    "lint:fix": "lerna run --parallel lint:fix",
-    "ls": "lerna ls",
-    "postinstall": "npm run bootstrap",
-    "publish": "npm run build && lerna publish --ignore-prepublish",
-    "test": "lerna run --parallel test"
+    "build": "turbo run build",
+    "format": "oxfmt phase*",
+    "lint": "oxfmt --check phase* && oxlint phase*",
+    "test": "turbo run test/unit"
   },
   "devDependencies": {
-    "lerna": "^3.14.1"
+    "oxfmt": "^0.63.0",
+    "oxlint": "^1.78.0",
+    "turbo": "^2.10.9"
   },
-  "license": "MIT"
+  "packageManager": "pnpm@10.22.0",
+  "engines": {
+    "node": ">=18.0.0"
+  }
 }

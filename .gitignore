@@ -1,4 +1,25 @@
+# dependencies
+node_modules
+
+# build + test output
+coverage
+.turbo
+.tsbuildinfo
+lib
+
+# make state
+.make/
+
+# environment
+.env
+.env.bak
+
+# other package managers (pnpm only — see pnpm-lock.yaml)
 package-lock.json
 yarn.lock
-node_modules
+
+# slides build output
 slides/core
+
+# os
+.DS_Store
