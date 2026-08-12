@@ -25,5 +25,5 @@ Remember elements should extend the BaseElement
 ## Demo
 
 ```sh
-npm run start
+pnpm start
 ```

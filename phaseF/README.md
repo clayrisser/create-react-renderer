@@ -63,5 +63,5 @@ appendInitialChild(
 ## Demo
 
 ```sh
-npm run start
+pnpm start
 ```

@@ -2,8 +2,6 @@
 
 > create text bindings
 
-## Usage
-
 ## Steps
 
 ### Fill out reconciler text lifecycle methods
@@ -79,5 +77,5 @@ shouldSetTextContent(_type: Type, props: Props): boolean {
 ## Demo
 
 ```sh
-npm run start
+pnpm start
 ```

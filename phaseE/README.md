@@ -29,10 +29,10 @@ the same across all elements
 
 [src/elements/BaseElement.ts](src/elements/BaseElement.ts)
 
-[src/elements/util.ts](src/elements/util.ts)
+[src/util.ts](src/util.ts)
 
 ## Demo
 
 ```sh
-npm run start
+pnpm start
 ```

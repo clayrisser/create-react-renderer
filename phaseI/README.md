@@ -6,7 +6,15 @@
 
 ### Fill out the rest of the reconciler lifecycle methods
 
+Older react-reconciler versions had `prepareUpdate`, `shouldDeprioritizeSubtree`,
+`scheduleDeferredCallback`, `cancelDeferredCallback`, `setTimeout` and `clearTimeout`.
+All of those were removed. `commitUpdate` receives the old and new props directly, the
+deferred callbacks were replaced by the update priority methods (implemented since
+[phaseA](../phaseA)) and the timeouts were renamed to `scheduleTimeout` and `cancelTimeout`.
+
 #### getPublicInstance
+
+The public instance is what refs receive, which is what makes ref debugging possible
 
 ```ts
 getPublicInstance(instance: Instance | TextInstance): PublicInstance {
@@ -17,23 +25,8 @@ getPublicInstance(instance: Instance | TextInstance): PublicInstance {
 #### prepareForCommit
 
 ```ts
-prepareForCommit(_containerInfo: Container): void {
-  // noop
-}
-```
-
-#### prepareUpdate
-
-```ts
-prepareUpdate(
-  _instance: Instance,
-  _type: Type,
-  _oldProps: Props,
-  _newProps: Props,
-  _rootContainerInstance: Container,
-  _hostContext: HostContext
-): null | UpdatePayload {
-  return true;
+prepareForCommit(_containerInfo: Container): Record<string, any> | null {
+  return null;
 }
 ```
 
@@ -47,13 +40,15 @@ resetAfterCommit(_containerInfo: Container): void {
 
 #### finalizeInitialChildren
 
+Returning true tells react to call `commitMount` for the instance once the tree committed
+
 ```ts
 finalizeInitialChildren(
   _parentInstance: Instance,
   _type: Type,
   _props: Props,
   _rootContainerInstance: Container,
-  _hostContext: HostContext
+  _hostContext: HostContext,
 ): boolean {
   return true;
 }
@@ -61,13 +56,16 @@ finalizeInitialChildren(
 
 #### commitUpdate
 
+`prepareUpdate` no longer exists, so instead of an update payload the old and new props are
+passed straight to `commitUpdate`
+
 ```ts
 commitUpdate(
   instance: Instance,
-  _updatePayload: any,
-  _type: string,
+  _type: Type,
   _oldProps: Props,
-  newProps: Props
+  newProps: Props,
+  _internalHandle: any,
 ): void {
   return instance.commitUpdate(newProps);
 }
@@ -81,54 +79,46 @@ commitMount(instance: Instance, _type: Type, _newProps: Props): void {
 }
 ```
 
-#### shouldDeprioritizeSubtree
+#### removeChild
 
 ```ts
-shouldDeprioritizeSubtree(): boolean {
-  return true;
+removeChild(parentInstance: Instance, child: Instance | TextInstance): void {
+  parentInstance.removeChild(child);
 }
 ```
 
-#### scheduleDeferredCallback
+#### scheduleTimeout
+
+Renamed from `setTimeout` in older reconciler versions
 
 ```ts
-scheduleDeferredCallback(
-  callback?: () => any,
-  _options?: { timeout: number }
-): any {
-  if (callback) {
-    throw new Error(
-      'Scheduling a callback twice is excessive. Instead, keep track of ' +
-        'whether the callback has already been scheduled.'
-    );
-  }
-}
-```
-
-#### cancelDeferredCallback
-
-```ts
-cancelDeferredCallback(_callbackID: any): void {
-  // noop
-}
-```
-
-#### setTimeout
-
-```ts
-setTimeout(
-  handler: (...args: any[]) => void,
-  timeout: number
-): TimeoutHandle | NoTimeout {
+scheduleTimeout(handler: (...args: any[]) => void, timeout: number): TimeoutHandle | NoTimeout {
   return setTimeout(handler, timeout);
 }
 ```
 
-#### clearTimeout
+#### cancelTimeout
+
+Renamed from `clearTimeout` in older reconciler versions
 
 ```ts
-clearTimeout(handle: TimeoutHandle | NoTimeout): void {
+cancelTimeout(handle: TimeoutHandle | NoTimeout): void {
   return clearTimeout(handle);
+}
+```
+
+### Warn about the bindings this renderer skips
+
+Some bindings don't make sense for a renderer that never rerenders or reorders children, so
+they warn during development
+
+```ts
+insertBefore(
+  _parentInstance: Instance,
+  _child: Instance | TextInstance,
+  _beforeChild: Instance | TextInstance,
+): void {
+  if (dev) log.warn("'insertBefore' not supported");
 }
 ```
 
@@ -136,8 +126,10 @@ clearTimeout(handle: TimeoutHandle | NoTimeout): void {
 
 [src/reconciler.ts](src/reconciler.ts)
 
+[src/dev.ts](src/dev.ts)
+
 ## Demo
 
 ```sh
-npm run start
+pnpm start
 ```
