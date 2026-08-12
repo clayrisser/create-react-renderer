@@ -1,16 +1,15 @@
-import React from 'react';
-import { FunctionDeclaration } from '../FunctionDeclaration';
-import { Param } from './Param';
-import { render } from '../..';
+import { FunctionDeclaration } from "../FunctionDeclaration";
+import { Param } from "./Param";
+import { render } from "../..";
 
-describe('<Param />', () => {
-  it('renders', () => {
-    const code = render(
+describe("<Param />", () => {
+  it("renders", async () => {
+    const code = await render(
       <FunctionDeclaration name="f">
         <Param>p</Param>
       </FunctionDeclaration>,
-      { prettier: false }
+      { prettier: false },
     );
-    expect(code).toBe('function f(p) {}');
+    expect(code).toBe("function f(p) {}");
   });
 });

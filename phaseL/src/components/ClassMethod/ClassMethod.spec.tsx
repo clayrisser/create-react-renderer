@@ -1,38 +1,37 @@
-import React from 'react';
-import { ClassMethod } from './ClassMethod';
-import { render, TypeAnnotation, TypeParam } from '../..';
+import { ClassMethod } from "./ClassMethod";
+import { render, TypeAnnotation, TypeParam } from "../..";
 
-describe('<ClassMethod />', () => {
-  it('renders', () => {
-    const code = render(<ClassMethod name="hello" />, { prettier: false });
-    expect(code).toBe('hello() {}');
+describe("<ClassMethod />", () => {
+  it("renders", async () => {
+    const code = await render(<ClassMethod name="hello" />, { prettier: false });
+    expect(code).toBe("hello() {}");
   });
 });
 
-describe('<ClassMethod static />', () => {
-  it('renders', () => {
-    const code = render(<ClassMethod static name="hello" />, {
-      prettier: false
+describe("<ClassMethod static />", () => {
+  it("renders", async () => {
+    const code = await render(<ClassMethod static name="hello" />, {
+      prettier: false,
     });
-    expect(code).toBe('static hello() {}');
+    expect(code).toBe("static hello() {}");
   });
 });
 
 describe('<ClassMethod returnType="any" />', () => {
-  it('renders', () => {
-    const code = render(<ClassMethod name="hello" returnType="any" />, {
+  it("renders", async () => {
+    const code = await render(<ClassMethod name="hello" returnType="any" />, {
       prettier: false,
       parserOptions: {
-        plugins: ['typescript']
-      }
+        plugins: ["typescript"],
+      },
     });
-    expect(code).toBe('hello(): any {}');
+    expect(code).toBe("hello(): any {}");
   });
 });
 
 describe('<ClassMethod static returnType="any" />', () => {
-  it('renders', () => {
-    const code = render(
+  it("renders", async () => {
+    const code = await render(
       <ClassMethod
         static
         name="hello"
@@ -40,11 +39,9 @@ describe('<ClassMethod static returnType="any" />', () => {
           <TypeAnnotation
             returnType
             params={[
-              <TypeParam
-                params={[<TypeParam params={['Texas']}>Howdy</TypeParam>]}
-              >
+              <TypeParam params={[<TypeParam params={["Texas"]}>Howdy</TypeParam>]}>
                 World
-              </TypeParam>
+              </TypeParam>,
             ]}
           >
             Hello
@@ -54,10 +51,10 @@ describe('<ClassMethod static returnType="any" />', () => {
       {
         prettier: false,
         parserOptions: {
-          plugins: ['typescript']
-        }
-      }
+          plugins: ["typescript"],
+        },
+      },
     );
-    expect(code).toBe('static hello(): Hello<World<Howdy<Texas>>> {}');
+    expect(code).toBe("static hello(): Hello<World<Howdy<Texas>>> {}");
   });
 });

@@ -1,16 +1,15 @@
-import React from 'react';
-import { ClassDeclaration } from '../ClassDeclaration';
-import { ExportNamedDeclaration } from './ExportNamedDeclaration';
-import { render } from '../..';
+import { ClassDeclaration } from "../ClassDeclaration";
+import { ExportNamedDeclaration } from "./ExportNamedDeclaration";
+import { render } from "../..";
 
-describe('<ExportNamedDeclaration />', () => {
-  it('renders', () => {
-    const code = render(
+describe("<ExportNamedDeclaration />", () => {
+  it("renders", async () => {
+    const code = await render(
       <ExportNamedDeclaration>
         <ClassDeclaration name="Button" />
       </ExportNamedDeclaration>,
-      { prettier: false }
+      { prettier: false },
     );
-    expect(code).toBe('export class Button {}');
+    expect(code).toBe("export class Button {}");
   });
 });

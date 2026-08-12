@@ -1,11 +1,10 @@
-import React from 'react';
-import { Code } from './Code';
-import { render } from '../..';
+import { Code } from "./Code";
+import { render } from "../..";
 
-describe('<Code />', () => {
-  it('renders', () => {
-    const code = render(<Code>const hello = 'world'</Code>, {
-      prettier: false
+describe("<Code />", () => {
+  it("renders", async () => {
+    const code = await render(<Code>const hello = 'world'</Code>, {
+      prettier: false,
     });
     expect(code).toBe("const hello = 'world';");
   });

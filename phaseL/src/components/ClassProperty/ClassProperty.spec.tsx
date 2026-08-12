@@ -1,42 +1,41 @@
-import React from 'react';
-import { ClassProperty } from './ClassProperty';
-import { render } from '../..';
+import { ClassProperty } from "./ClassProperty";
+import { render } from "../..";
 
-describe('<ClassProperty />', () => {
-  it('renders', () => {
-    const code = render(<ClassProperty name="hello">world</ClassProperty>, {
-      parserOptions: { plugins: ['classProperties'] },
-      prettier: false
+describe("<ClassProperty />", () => {
+  it("renders", async () => {
+    const code = await render(<ClassProperty name="hello">world</ClassProperty>, {
+      parserOptions: { plugins: ["classProperties"] },
+      prettier: false,
     });
     expect(code).toBe("hello = 'world';");
   });
 });
 
-describe('<ClassProperty static />', () => {
-  it('renders', () => {
-    const code = render(
+describe("<ClassProperty static />", () => {
+  it("renders", async () => {
+    const code = await render(
       <ClassProperty static name="hello">
         world
       </ClassProperty>,
       {
-        parserOptions: { plugins: ['classProperties'] },
-        prettier: false
-      }
+        parserOptions: { plugins: ["classProperties"] },
+        prettier: false,
+      },
     );
     expect(code).toBe("static hello = 'world';");
   });
 });
 
-describe('<ClassProperty type />', () => {
-  it('renders', () => {
-    const code = render(
+describe("<ClassProperty type />", () => {
+  it("renders", async () => {
+    const code = await render(
       <ClassProperty name="hello" type="string">
         world
       </ClassProperty>,
       {
-        parserOptions: { plugins: ['classProperties', 'typescript'] },
-        prettier: false
-      }
+        parserOptions: { plugins: ["classProperties", "typescript"] },
+        prettier: false,
+      },
     );
     expect(code).toBe("hello: string = 'world';");
   });
