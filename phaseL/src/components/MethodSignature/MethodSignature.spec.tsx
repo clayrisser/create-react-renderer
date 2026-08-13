@@ -1,39 +1,38 @@
-import React from 'react';
-import { MethodSignature } from './MethodSignature';
-import { render } from '../..';
+import { MethodSignature } from "./MethodSignature";
+import { render } from "../..";
 
-describe('<MethodSignature />', () => {
-  it('renders', () => {
-    const code = render(<MethodSignature name="hello" />, {
+describe("<MethodSignature />", () => {
+  it("renders", async () => {
+    const code = await render(<MethodSignature name="hello" />, {
       parserOptions: {
-        plugins: ['typescript']
+        plugins: ["typescript"],
       },
-      prettier: false
+      prettier: false,
     });
-    expect(code).toBe('hello(): any;');
+    expect(code).toBe("hello(): any;");
   });
 });
 
-describe('<MethodSignature returnType />', () => {
-  it('renders', () => {
-    const code = render(<MethodSignature name="hello" returnType="string" />, {
+describe("<MethodSignature returnType />", () => {
+  it("renders", async () => {
+    const code = await render(<MethodSignature name="hello" returnType="string" />, {
       prettier: false,
       parserOptions: {
-        plugins: ['typescript']
-      }
+        plugins: ["typescript"],
+      },
     });
-    expect(code).toBe('hello(): string;');
+    expect(code).toBe("hello(): string;");
   });
 });
 
-describe('<MethodSignature params />', () => {
-  it('renders', () => {
-    const code = render(<MethodSignature name="hello" params={['world']} />, {
+describe("<MethodSignature params />", () => {
+  it("renders", async () => {
+    const code = await render(<MethodSignature name="hello" params={["world"]} />, {
       prettier: false,
       parserOptions: {
-        plugins: ['typescript']
-      }
+        plugins: ["typescript"],
+      },
     });
-    expect(code).toBe('hello(world): any;');
+    expect(code).toBe("hello(world): any;");
   });
 });

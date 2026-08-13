@@ -1,24 +1,23 @@
-import React from 'react';
-import { FunctionExpression } from './FunctionExpression';
-import { render } from '../..';
+import { FunctionExpression } from "./FunctionExpression";
+import { render } from "../..";
 
-describe('<FunctionExpression />', () => {
-  it('renders', () => {
-    const code = render(<FunctionExpression />, {
-      prettier: false
+describe("<FunctionExpression />", () => {
+  it("renders", async () => {
+    const code = await render(<FunctionExpression />, {
+      prettier: false,
     });
-    expect(code).toBe('function () {}');
+    expect(code).toBe("function () {}");
   });
 });
 
 describe('<FunctionExpression returnType="any" />', () => {
-  it('renders', () => {
-    const code = render(<FunctionExpression returnType="any" />, {
+  it("renders", async () => {
+    const code = await render(<FunctionExpression returnType="any" />, {
       prettier: false,
       parserOptions: {
-        plugins: ['typescript']
-      }
+        plugins: ["typescript"],
+      },
     });
-    expect(code).toBe('function (): any {}');
+    expect(code).toBe("function (): any {}");
   });
 });

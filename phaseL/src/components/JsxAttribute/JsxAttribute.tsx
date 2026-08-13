@@ -1,5 +1,5 @@
-import React, { Component, ReactNode } from 'react';
-import { Smart } from '../..';
+import { Component, ReactNode } from "react";
+import { Smart } from "../..";
 
 export interface JsxAttributeProps {
   name: string;
@@ -8,12 +8,12 @@ export interface JsxAttributeProps {
 
 export class JsxAttribute extends Component<JsxAttributeProps> {
   render() {
-    let code = '';
-    if (typeof this.props.children === 'string') {
+    let code = "";
+    if (typeof this.props.children === "string") {
       code = `<Jsx ${this.props.name}="${this.props.children}" />`;
-    } else if (typeof this.props.children === 'number') {
+    } else if (typeof this.props.children === "number") {
       code = `<Jsx ${this.props.name}={${this.props.children}} />`;
-    } else if (typeof this.props.children === 'boolean') {
+    } else if (typeof this.props.children === "boolean") {
       if (this.props.children) {
         code = `<Jsx ${this.props.name} />`;
       } else {

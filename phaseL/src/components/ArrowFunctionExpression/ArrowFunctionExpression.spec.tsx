@@ -1,24 +1,23 @@
-import React from 'react';
-import { ArrowFunctionExpression } from './ArrowFunctionExpression';
-import { render } from '../..';
+import { ArrowFunctionExpression } from "./ArrowFunctionExpression";
+import { render } from "../..";
 
-describe('<ArrowFunctionExpression />', () => {
-  it('renders', () => {
-    const code = render(<ArrowFunctionExpression />, {
-      prettier: false
+describe("<ArrowFunctionExpression />", () => {
+  it("renders", async () => {
+    const code = await render(<ArrowFunctionExpression />, {
+      prettier: false,
     });
-    expect(code).toBe('() => {}');
+    expect(code).toBe("() => {}");
   });
 });
 
 describe('<ArrowFunctionExpression returnType="any" />', () => {
-  it('renders', () => {
-    const code = render(<ArrowFunctionExpression returnType="any" />, {
+  it("renders", async () => {
+    const code = await render(<ArrowFunctionExpression returnType="any" />, {
       prettier: false,
       parserOptions: {
-        plugins: ['typescript']
-      }
+        plugins: ["typescript"],
+      },
     });
-    expect(code).toBe('(): any => {}');
+    expect(code).toBe("(): any => {}");
   });
 });

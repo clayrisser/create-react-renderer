@@ -1,5 +1,5 @@
-import React, { Component, ReactNode } from 'react';
-import { Smart, TypeAnnotation } from '../..';
+import { Component, ReactNode } from "react";
+import { Smart, TypeAnnotation } from "../..";
 
 export interface PropertySignatureProps {
   name: string;
@@ -8,7 +8,7 @@ export interface PropertySignatureProps {
 
 export class PropertySignature extends Component<PropertySignatureProps> {
   renderTypeAnnotation() {
-    return typeof this.props.type === 'string' ? (
+    return typeof this.props.type === "string" ? (
       <TypeAnnotation>{this.props.type}</TypeAnnotation>
     ) : (
       this.props.type

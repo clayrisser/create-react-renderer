@@ -8,13 +8,22 @@
 
 For now we will just log each of the lifecycle methods
 
+React-reconciler 0.33 requires a bit of plumbing to exist before anything renders, so the
+host config also ships real implementations for the update priority methods
+(`setCurrentUpdatePriority`, `getCurrentUpdatePriority`, `resolveUpdatePriority`), microtask
+scheduling (`scheduleMicrotask`) and the transition context (`HostTransitionContext`,
+`NotPendingTransition`). Everything else just logs.
+
 ### Create base element
 
 ### Create render function
 
 1. initialize root element
-2. initialize root fiber `reconciler.createContainer`
-3. reconcile virtual dom `reconciler.updateContainer`
+2. initialize root fiber `reconciler.createContainer` (react 19 only exposes concurrent
+   roots, so pass `ConcurrentRoot` and the error callbacks)
+3. reconcile virtual dom `reconciler.updateContainerSync` + `reconciler.flushSyncWork`
+   (react-reconciler 0.33 schedules work async by default, so this forces the render to
+   finish before the function returns)
 
 ## Interesting Files
 
@@ -27,5 +36,5 @@ For now we will just log each of the lifecycle methods
 ## Demo
 
 ```sh
-npm run start
+pnpm start
 ```

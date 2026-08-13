@@ -26,5 +26,5 @@ create the root fiber
 ## Demo
 
 ```sh
-npm run start
+pnpm start
 ```

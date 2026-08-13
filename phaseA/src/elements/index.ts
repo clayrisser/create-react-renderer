@@ -1,3 +1,3 @@
-import BaseElement from './BaseElement';
+import BaseElement from "./BaseElement";
 
 export { BaseElement };

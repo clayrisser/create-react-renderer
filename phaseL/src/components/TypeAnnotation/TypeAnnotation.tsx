@@ -1,6 +1,5 @@
-import React, { Component, ReactNode } from 'react';
-import { oc } from 'ts-optchain.macro';
-import { Smart, TypeParam } from '../..';
+import { Component, ReactNode } from "react";
+import { Ast, Smart, TypeParam } from "../..";
 
 export interface TypeAnnotationProps {
   children: string;
@@ -10,24 +9,20 @@ export interface TypeAnnotationProps {
 
 export class TypeAnnotation extends Component<TypeAnnotationProps> {
   renderTypeParams() {
-    return oc(this.props)
-      .params([])
-      .map((param: ReactNode) => {
-        if (typeof param === 'string') {
-          return <TypeParam key={param}>{param}</TypeParam>;
-        }
-        return param;
-      });
+    return (this.props.params ?? []).map((param: ReactNode) => {
+      if (typeof param === "string") {
+        return <TypeParam key={param}>{param}</TypeParam>;
+      }
+      return param;
+    });
   }
 
   render() {
-    const code = `const c: ${this.props.children}${
-      oc(this.props).params.length(0) ? '<>' : ''
-    } = null`;
+    const code = `const c: ${this.props.children} = null`;
     return (
       <Smart
         code={code}
-        parentBodyPath={this.props.returnType ? 'returnType' : 'typeAnnotation'}
+        parentBodyPath={this.props.returnType ? "returnType" : "typeAnnotation"}
         scopePath="declarations.0.id.typeAnnotation"
       >
         <Smart
@@ -35,6 +30,14 @@ export class TypeAnnotation extends Component<TypeAnnotationProps> {
           scopePath="declarations.0.id.typeAnnotation.typeAnnotation"
           parentBodyPath="typeAnnotation"
         >
+          {this.props.params?.length ? (
+            // modern @babel/parser rejects empty type arguments like T<>, so
+            // inject an empty type parameter container for the params to land in
+            <Ast
+              ast={{ type: "TSTypeParameterInstantiation", params: [] }}
+              parentBodyPath="typeParameters"
+            />
+          ) : null}
           {this.renderTypeParams()}
         </Smart>
       </Smart>

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "tasks": {
+    "build": {
+      "outputs": [".tsbuildinfo"]
+    },
+    "test/unit": {
+      "outputs": ["coverage/**"]
+    },
+    "start": {
+      "cache": false
+    }
+  }
+}

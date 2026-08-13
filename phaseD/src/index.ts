@@ -1,4 +1,4 @@
-export * from './render';
-export * from './types';
+export * from "./render";
+export * from "./types";
 
-export const File = 'File';
+export const File = "File";

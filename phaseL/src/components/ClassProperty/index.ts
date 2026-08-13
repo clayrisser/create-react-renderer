@@ -1,1 +1,1 @@
-export * from './ClassProperty';
+export * from "./ClassProperty";

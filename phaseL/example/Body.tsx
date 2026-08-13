@@ -1,15 +1,11 @@
-import React, { FC } from 'react';
-import { JsxElement } from '../src';
+import { JsxElement } from "../src";
 
 export interface BodyProps {
   hello?: string;
 }
 
-const Body: FC<BodyProps> = (props: BodyProps) => (
-  <JsxElement name="Hello">{props}</JsxElement>
-);
-Body.defaultProps = {
-  hello: 'world'
-};
-
-export default Body;
+// react 19 removed defaultProps for function components, so components use
+// default parameter values instead
+export default function Body({ hello = "world" }: BodyProps) {
+  return <JsxElement name="Hello">{{ hello }}</JsxElement>;
+}

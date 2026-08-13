@@ -1,1 +1,1 @@
-export * from './ExportNamedDeclaration';
+export * from "./ExportNamedDeclaration";

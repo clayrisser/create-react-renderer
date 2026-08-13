@@ -1,11 +1,11 @@
-import _ from 'lodash';
-import { TemplateBuilderOptions } from '@babel/template';
+import _ from "lodash";
+import { TemplateBuilderOptions } from "@babel/template";
 
 const _context: Context = {
   parserOptions: {
     placeholderPattern: false,
-    placeholderWhitelist: new Set()
-  }
+    placeholderWhitelist: new Set(),
+  },
 };
 
 export interface Context {

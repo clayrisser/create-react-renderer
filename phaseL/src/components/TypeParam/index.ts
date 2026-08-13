@@ -1,1 +1,1 @@
-export * from './TypeParam';
+export * from "./TypeParam";

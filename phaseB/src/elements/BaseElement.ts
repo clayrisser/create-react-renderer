@@ -1,4 +1,4 @@
-import { BaseNode, Node, Instance, Props } from '../types';
+import { BaseNode, Node, Instance, Props } from "../types";
 
 export interface IElement {
   new (props?: Props): BaseElement;

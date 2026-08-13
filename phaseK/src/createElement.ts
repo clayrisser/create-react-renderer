@@ -1,6 +1,6 @@
-import elements from './elements';
-import { IElement } from './elements/BaseElement';
-import { getContext } from './context';
+import elements from "./elements";
+import { IElement } from "./elements/BaseElement";
+import { getContext } from "./context";
 
 export default function createElement(elementType: string, props: any) {
   const { parserOptions } = getContext();

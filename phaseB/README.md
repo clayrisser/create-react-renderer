@@ -42,5 +42,5 @@ For example, the react dom renderer root element might use the `div` element
 ## Demo
 
 ```sh
-npm run start
+pnpm start
 ```

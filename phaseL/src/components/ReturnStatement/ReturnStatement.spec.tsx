@@ -1,22 +1,21 @@
-import React from 'react';
-import { ReturnStatement } from './ReturnStatement';
-import { render, Literal } from '../..';
+import { ReturnStatement } from "./ReturnStatement";
+import { render, Literal } from "../..";
 
-describe('<ReturnStatement />', () => {
-  it('renders', () => {
-    const code = render(<ReturnStatement>r</ReturnStatement>, {
-      prettier: false
+describe("<ReturnStatement />", () => {
+  it("renders", async () => {
+    const code = await render(<ReturnStatement>r</ReturnStatement>, {
+      prettier: false,
     });
     expect(code).toBe("return 'r';");
   });
 
-  it('renders with react children', () => {
-    const code = render(
+  it("renders with react children", async () => {
+    const code = await render(
       <ReturnStatement>
         <Literal>{[]}</Literal>
       </ReturnStatement>,
-      { prettier: false }
+      { prettier: false },
     );
-    expect(code).toBe('return [];');
+    expect(code).toBe("return [];");
   });
 });

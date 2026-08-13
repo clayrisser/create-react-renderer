@@ -1,1 +1,1 @@
-export * from './PropertySignature';
+export * from "./PropertySignature";

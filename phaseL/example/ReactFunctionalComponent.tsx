@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from 'react';
+import { FC, ReactNode } from "react";
 import {
   ArrowFunctionExpression,
   Code,
@@ -8,8 +8,8 @@ import {
   MethodSignature,
   Param,
   TypeAnnotation,
-  VariableDeclaration
-} from '../src';
+  VariableDeclaration,
+} from "../src";
 
 export interface ReactFunctionalComponentProps {
   name: string;
@@ -17,16 +17,16 @@ export interface ReactFunctionalComponentProps {
 }
 
 const ReactFunctionalComponent: FC<ReactFunctionalComponentProps> = (
-  props: ReactFunctionalComponentProps
+  props: ReactFunctionalComponentProps,
 ) => (
   <>
     <ImportDeclaration
       defaultExport="React"
-      exports={['Component', 'FC', 'ReactNode']}
+      exports={["Component", "FC", "ReactNode"]}
       source="react"
     />
     <InterfaceDeclaration name={`${props.name}Props`}>
-      <MethodSignature name="hello" params={['world']} returnType="string" />
+      <MethodSignature name="hello" params={["world"]} returnType="string" />
     </InterfaceDeclaration>
     <VariableDeclaration
       kind="const"

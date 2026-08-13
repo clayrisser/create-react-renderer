@@ -1,1 +1,1 @@
-export * from './JsxAttribute';
+export * from "./JsxAttribute";

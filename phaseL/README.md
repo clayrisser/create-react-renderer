@@ -17,5 +17,5 @@ and then build lots of specific components on top of the broad elements.
 ## Demo
 
 ```sh
-npm run start
+pnpm start
 ```

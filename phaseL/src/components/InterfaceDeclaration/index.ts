@@ -1,1 +1,1 @@
-export * from './InterfaceDeclaration';
+export * from "./InterfaceDeclaration";

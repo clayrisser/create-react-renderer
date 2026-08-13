@@ -1,16 +1,13 @@
-import { Node as BabelNode, Comment, SourceLocation } from '@babel/types';
+import { Node as BabelNode, Comment, SourceLocation } from "@babel/types";
 
-// export interface BaseNode {
-//   [key: string]: any;
-// }
 export interface BaseNode {
-  leadingComments: ReadonlyArray<Comment> | null;
-  innerComments: ReadonlyArray<Comment> | null;
-  trailingComments: ReadonlyArray<Comment> | null;
-  start: number | null;
-  end: number | null;
-  loc: SourceLocation | null;
-  type: BabelNode['type'];
+  leadingComments?: Comment[] | null;
+  innerComments?: Comment[] | null;
+  trailingComments?: Comment[] | null;
+  start?: number | null;
+  end?: number | null;
+  loc?: SourceLocation | null;
+  type: BabelNode["type"];
 }
 
 export interface Options {
@@ -31,7 +28,11 @@ export type PublicInstance = Instance | TextInstance;
 
 export type HostContext = Context;
 
-export type UpdatePayload = any;
+export type SuspenseInstance = any;
+
+export type FormInstance = any;
+
+export type TransitionStatus = any;
 
 export type ChildSet = any;
 
@@ -39,11 +40,11 @@ export type TimeoutHandle = any;
 
 export type NoTimeout = any;
 
+export type Path = string | number | DeepArray<string | number>;
+
 export interface Container extends Instance {}
 
 export interface TextInstance extends Instance {}
-
-export type Path = string | number | DeepArray<string | number>;
 
 export interface DeepArray<T> extends Array<T | DeepArray<T>> {}
 
@@ -59,10 +60,6 @@ export interface Instance {
   node: Node;
   props: Props;
   removeChild(child: Instance | TextInstance): void;
-}
-
-export interface Pkg {
-  [key: string]: any;
 }
 
 export interface Context {

@@ -1,5 +1,5 @@
-import React, { Component, ReactNode } from 'react';
-import { Smart } from '../..';
+import { Component, ReactNode } from "react";
+import { Smart } from "../..";
 
 export interface CallExpressionProps {
   name: string;
@@ -15,7 +15,7 @@ export class CallExpression extends Component<CallExpressionProps> {
     const code = `${this.props.name}()`;
     return (
       <Smart code={code} scopePath="expression">
-        {this.renderArguments}
+        {this.renderArguments()}
       </Smart>
     );
   }
